@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html> 
+<html>
 <head>
 <meta charset=utf-8 />
 <title>JavaScript program to guess a number </title>
 <style type="text/css">
 body {margin: 30px;}
-</style> 
+</style>
 </head>
 <body>
 <p>Guess a number between 1 and 10</p>
 <form>
-  <input type="text" name="number">
-  <button >Submit</button>
+  <input type="text" id="number">
+  <button id="go" onclick=check()>Submit</button>
+  <div id="result"></div>
 </form>
 <script src="./js/guess.js"></script>
 </body>
