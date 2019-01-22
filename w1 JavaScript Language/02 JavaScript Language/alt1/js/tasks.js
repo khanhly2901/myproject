@@ -2,7 +2,7 @@
 // This script manages a to-do list.
 
 // Need a global variable:
-var tasks = []; 
+var tasks = [];
 
 // Function called when the form is submitted.
 // Function adds a task to the global array.
@@ -14,30 +14,58 @@ function addTask() {
 
     // Reference to where the output goes:
     var output = document.getElementById('output');
-    
+
     // For the output:
     var message = '';
 
     if (task.value) {
-    
+
         // Add the item to the array:
         tasks.push(task.value);
-        
+
         // Update the page:
         message = '<h2>To-Do</h2><ol>';
         for (var i = 0, count = tasks.length; i < count; i++) {
+
             message += '<li>' + tasks[i] + '</li>';
         }
         message += '</ol>';
         output.innerHTML = message;
-        
+
     } // End of task.value IF.
 
     // Return false to prevent submission:
     return false;
-    
+
 } // End of addTask() function.
 
+function remove()
+{
+	'use strict';
+
+    // Reference to where the output goes:
+    var output = document.getElementById('output');
+
+    // For the output:
+    var message = '';
+
+
+        let unique = [...new Set(tasks)];
+        tasks=Array.from(unique);
+        // Update the page:
+        message = '<h2>To-Do</h2><ol>';
+        for (var i = 0, count = unique.length; i < count; i++) {
+
+        	  		message += '<li>' + unique[i] + '</li>';
+        }
+        message += '</ol>';
+        output.innerHTML = message;
+
+     // End of task.value IF.
+
+    // Return false to prevent submission:
+    return false;
+}
 // Initial setup:
 function init() {
     'use strict';
