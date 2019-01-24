@@ -6,29 +6,32 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Demonstrating HTML forms</title>
+		<link href="form.css" type="text/css" rel="stylesheet" />
 	</head>
-	
+
 	<body>
 		<h1>Turnitin</h1>
 		<form  lang="fi" action="">
 			<div>
-				Name: <input type="text" name="studentname"/>
+				Name: <input placeholder='firstname.lastname' type="text" name="studentname" pattern="([A-Ya-y])"/> <p></p>
 			</div>
 			<div>
-				Student id: <input type="text" name="id"  />
+				Student id: <input placeholder='00000xxx123' type="text" name="id " pattern="([0-9])" /><p></p>
 			</div>
 			<div>
 				Email:
 				<!--
 				Make an input named "email"
 				-->
+				<input name='email' placeholder='name@gmail.com' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type='email' oninvalid="this.setCustomValidity('Lütfen işaretli yerleri doldurunuz')" required /><p></p>
+
 			</div>
 			<div>
 				Assignment:
 				<!--
 				Make an input named "assignment"
 				-->
-				
+				<input name='assignment' type='radio'><p></p>
 			</div>
 
 			<div>
@@ -36,25 +39,32 @@
 				<!--
 				Make an input named "code" which is a text area to put student's code into.
 				-->
-				
+				<input name='code' type='text'><p></p>
 			</div>
 			<div>
-				Cheat:
+				<fieldset>
+					<legend>Cheat</legend>
 			<!--
 				Make an input named "cheat" which is a check box the student must check.
 			-->
+			<label>	<input name='cheat' type='checkbox'>cheat</label>
+			<label>	<input name='hello' type='checkbox'>no</label>
+			</fieldset>
+			<br>
 			</div>
 			<div>
 				Pay:
 			<!--
 				Make an input named "payment" which is a radio box with possible values of visa, paypal, mastercard
 			-->
+				<input name='payment' type='password'><p></p>
 			</div>
 			<div>
 				Score:
 			<!--
-				Make an input named "score" which is a list of choices for the score 
+				Make an input named "score" which is a list of choices for the score
 			-->
+				<input name='score' type='number'><p></p>
 			</div>
 			<input type="submit" />
 		</form>

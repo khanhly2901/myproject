@@ -1,4 +1,4 @@
-﻿body {
+body {
     font-family: Arial, Verdana, sans-serif;
 }
 
@@ -10,10 +10,14 @@ h1.alert {
     font-size: 3em;
 }
 
+.underlined{
+		text-decoration: underline;
+}
+
 .alert {
     color: red;
 }
 
-p#unique {
+#unique {
     font-size: 0.8em;
 }
