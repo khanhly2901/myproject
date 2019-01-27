@@ -5,7 +5,7 @@
   <title> Handling events in IE8 and earlier </title>
   <style>
 	span {
-		cursor: pointer;
+		cursor: alias;
 	}
   </style>
   <script>
@@ -13,6 +13,24 @@ window.onload = function() {
 	var div = document.getElementById("clickme");
 	if (div.addEventListener) {
 		div.addEventListener("click", handleClick, false);
+	} else if (div.attachEvent) {
+		div.attachEvent("click", handleClick);
+	}
+};
+
+window.onload = function() {
+	var div = document.getElementById("hello");
+	if (div.addEventListener) {
+		div.addEventListener("click", handleClick, false);
+	} else if (div.attachEvent) {
+		div.attachEvent("click", handleClick);
+	}
+};
+
+window.onload = function() {
+	var div = document.getElementById("hello");
+	if (div.addEventListener) {
+		div.addEventListener("mousemove", handleClick, false);
 	} else if (div.attachEvent) {
 		div.attachEvent("click", handleClick);
 	}
@@ -33,5 +51,6 @@ function handleClick(e) {
 </head>
 <body>
 <span id="clickme">Click me!</span>
+<span id="hello">Hello!</span>
 </body>
 </html>

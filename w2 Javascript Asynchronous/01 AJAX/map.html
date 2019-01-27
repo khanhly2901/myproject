@@ -9,9 +9,9 @@
 		var map = document.getElementById("map");
 		map.onmousemove = showCoords;
 		var mydiv = document.getElementById("mydiv");
-		mydiv.onclick = addtext;
+		mydiv.onclick = addp;
 	}
-	
+
 	function showCoords(eventObj) {
 		var coords = document.getElementById("coords");
 		var x = eventObj.clientX;
@@ -28,11 +28,35 @@
 			alert("Looks like you have an old browser!");
 		}
 	}
+var i = 0;
+	function addp(){
+		var node = document.createElement("LI");
+
+		var ids = ['Africa', 'North and South America', 'Australia', 'Antarctica'];
+
+
+   var textnode = document.createTextNode(ids[i]);
+   node.appendChild(textnode);
+  document.getElementById("myList").appendChild(node);
+	i += 1;
+	}
+
+	function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World!";
+}
   </script>
 </head>
 <body>
+
 	<img id="map" src="data/map.jpg">
 	<p id="coords">Move mouse over map to find coordinates...</p>
-	<div id="mydiv" style="border:1px solid red">I am a DIV! Click me.</div>
+		<ul id="myList">
+  <li>Asia</li>
+  <li>Europe</li>
+</ul>
+<p>Click the button to append a continent to the end of the list.</p>
+<div id="mydiv" style="border:1px solid red">Click me.</div>
+<p id="demo" onclick="myFunction()">Click me to change my HTML content (innerHTML).</p>
+
 </body>
 </html>

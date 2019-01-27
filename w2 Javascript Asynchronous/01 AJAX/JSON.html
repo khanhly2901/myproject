@@ -1,8 +1,13 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title> JSON </title>
+
+  <body>
+
+
+
+	<p id="demo"></p>
+	<p id="demos"></p>
+
   <script>
 
 var fidoString = '{ "name": "Fido", "breed": "Mixed", "weight": 38 }';
@@ -18,8 +23,23 @@ var fido2 = {
 var fidoString = JSON.stringify(fido2);
 console.log("We made a string from a dog! " + fidoString);
 
+var cat = {
+		name: "Kitty",
+    breed: {
+        latin: "Boidae",
+        swedish: "Jätteorm"
+    },
+    sound: "none"
+}
+console.log("We have a cat, " + cat.name + " and its breed is " + cat.breed.latin + " or you can call " + cat.breed.swedish + " in Swedish.")
+var myJSON=JSON.stringify(cat);
+document.getElementById("demo").innerHTML = myJSON;
+var obj = JSON.parse(myJSON);
+console.log(obj.name);
+var myObj = JSON.stringify(obj);
+document.getElementById("demos").innerHTML = myObj;
   </script>
-</head>
-<body>
+
+
 </body>
 </html>
