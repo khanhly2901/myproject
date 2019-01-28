@@ -1,59 +1,28 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Ajax Request Example</title>
-</head>
-
+<!DOCTYPE html>
+<html>
 <body>
-  <span  id="ajaxButton"  style="cursor: pointer; text-decoration: underline">
-    Make a request
-  </span>
-<input type="text" id="myURL" >
 
-<button onclick="function()">Try it</button>
+<h2>Ajax Request Example</h2>
 
-  <script type="text/javascript">
-  (function() {
-    var httpRequest;
-    //var testUrl = 'data/story.json';
-    // Use Github Gist when no web server is available
-     //var testUrl = 'https://gist.githubusercontent.com/c0lin/571d38b984d41b44aacf/raw/story.json';
-     var testUrl = document.getElementById("myURL").value;
+<input type='text' id='url'>
+<button type="button" onclick="makeRequest()">Click</button>
 
-    document.getElementById("ajaxButton").onclick = function() { makeRequest(testUrl); };
-
-    function makeRequest(url) {
-
-        httpRequest = new XMLHttpRequest();
-
-
-      if (!httpRequest) {
-        alert('Giving up :( Cannot create an XMLHTTP instance');
-        return false;
-      }
-
-      // set a callback function for when the httpRequest completes
-      httpRequest.onreadystatechange = alertContents;
-
-      // now do the actual AJAX request
-      httpRequest.open('GET', url);
-      httpRequest.send();
+<script>
+function makeRequest() {
+	var testUrl = document.getElementById('url').value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      alert(this.responseText);
+    } else if (this.readyState == 4 && this.status == 404)
+    {
+    	alert("Site is down!");
     }
-
-    // the callback
-    // this will be run when the request completes (see above)
-    function alertContents() {
-      if (httpRequest.readyState === 4) {
-      	if (httpRequest.status === 404){
-          alert('Site is DOWN!');
-        } else if (httpRequest.status === 200) {
-          alert(httpRequest.responseText);
-        }
-      }
-    }
-  })();
-  </script>
+  };
+  xhttp.open("GET", testUrl, true);
+  xhttp.send();
+}
+</script>
 
 </body>
 </html>

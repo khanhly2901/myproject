@@ -1,38 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title> Handling events in IE8 and earlier </title>
-  <style>
-	span {
-		cursor: alias;
-	}
-  </style>
-  <script>
-	window.onload=function(){
-		var div = document.getElementById('clickme');
-		if (div.addEventListener) {
-			div.addEventListener('click', handleClick, false);
-		}else if(div.attachEvent) {
-			div.attachEvent('click', handleClick);
-		}
-	};
-
-	function handleClick(e) {
-		var evt=e || window.event;
-		var target;
-		if (evt.target) {
-			target = evt.target;
-		} else {
-			target=evt.srcElement;
-		}
-		alert("you clicked on " + target.id);
-	}
-
-
-  </script>
-</head>
 <body>
-<span id="clickme">Click me!</span>
+
+<h3>A demonstration of how to access a Text Field</h3>
+
+<input type="text" id="myText">
+
+
+<button onclick="myFunction()">Try it</button>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myText").value;
+  console.log(x);
+  //document.getElementById("demo").innerHTML = x;
+}
+</script>
+
 </body>
 </html>
